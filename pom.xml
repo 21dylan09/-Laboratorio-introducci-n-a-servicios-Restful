@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>co.edu.unipiloto</groupId>
+    <artifactId>labRESTP</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <name>labRESTP</name>
+
+    <properties>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Configuración de la versión de Java -->
+        <maven.compiler.source>1.8</maven.compiler.source> <!-- Usar Java 8 -->
+        <maven.compiler.target>1.8</maven.compiler.target> <!-- Usar Java 8 -->
+    </properties>
+
+    <dependencies>
+        <!-- Dependencia para Java EE Web API -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Dependencia de Jersey -->
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-servlet</artifactId>
+            <version>1.13</version>
+        </dependency>
+
+        <!-- Dependencias de JAXB para Java 9 y superior -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version> <!-- Versión compatible con Java 9+ -->
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>2.3.1</version> <!-- Versión compatible con Java 9+ -->
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.3.1</version> <!-- Versión compatible con Java 9+ -->
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Actualización del plugin de compilación -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version> <!-- Versión actualizada -->
+                <configuration>
+                    <source>1.8</source> <!-- Usar Java 8 -->
+                    <target>1.8</target> <!-- Usar Java 8 -->
+                </configuration>
+            </plugin>
+
+            <!-- Plugin para empaquetar el archivo WAR -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.1</version> <!-- Actualización de la versión -->
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml> <!-- No requiere web.xml para REST -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- Repositorios de Maven -->
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url> <!-- Repositorio central de Maven -->
+        </repository>
+    </repositories>
+</project>
